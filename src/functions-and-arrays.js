@@ -40,16 +40,28 @@ function sumNumbers(numbers) {
   for (let i = 0; i < numbers.length; i++){
     sum += numbers[i]
   }
-  return sum
+  return sum;
 }
 
 
 
 // Iteration #3.1 Bonus:
 function sum(numbers) {
+  let sum = 0;
 
+  for (let i = 0; i < numbers.length; i++){
+    if (typeof numbers[i] === "object") {
+      throw new Error("ça marche po");
+      return; 
+    } 
+    if (typeof numbers[i] === 'string') {
+      sum += numbers[i].length;
+    } else {
+      sum += numbers[i];
+    }
+  }
+  return sum;
 }
-
 
 
 // Iteration #4: Calculate the average
@@ -88,20 +100,21 @@ function averageWordLength(wordsArr) {
 
 // Bonus - Iteration #4.1
 function avg(arr) {
-  // if (arr.length === 0) {
-  //   return null;
-  // } else {
-  //   let sum = 0;
-  //   for (let i = 0; i < arr.length; i++) {
-  //     if (arr[i].typeof === "number") {
-  //       sum += arr[i];
-  //     } else if (arr[i].typeof === "string") {
-  //       sum += arr[i].length;
-  //     } else {}
-  //   let average = (sum / arr.length);
-  //   return average;
-  // }
+  let sum = 0;
 
+  if (arr.length === 0) {
+    return null;
+  } else {
+    for (let i = 0; i < arr.length; i++){
+      if (typeof arr[i] === 'string'){
+        sum += arr[i].length;
+      } else {
+        sum += arr[i];
+      }
+    }
+  }
+  let average = (sum / arr.length);
+  return average;
 }
 
 // Iteration #5: Unique arrays
