@@ -214,10 +214,8 @@ function greatestProduct(matrix) {
   let y = matrix.length;
   let product = 0;
 
-
-
   for (let i = 0; i < y; i++){
-    for (let j = 0; j < matrix[i].length -4 ; j++){
+    for (let j = 0; j < matrix[i].length - 3 ; j++){
       let tempProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3] ;
       if (product < tempProduct) {
         product = tempProduct;
@@ -226,7 +224,7 @@ function greatestProduct(matrix) {
   };
 
   for (let i = 0; i < x; i++){
-    for (let j= 0; j < matrix.length - 4; j++){
+    for (let j= 0; j < matrix.length - 3; j++){
     let tempProduct2 =  matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
     if (product < tempProduct2) {
       product = tempProduct2;
