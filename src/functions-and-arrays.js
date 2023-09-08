@@ -186,7 +186,7 @@ function howManyTimes(wordsCount, word) {
 
 // Iteration #8: Bonus
 const matrix = [
-  [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
+  [8, 2,  22, 97, 38, 15,0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
   [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
   [81, 49, 31, 73, 55, 79, 14, 29, 93, 71, 40, 67, 53, 88, 30, 3, 49, 13, 36, 65],
   [52, 70, 95, 23, 4, 60, 11, 42, 69, 24, 68, 56, 1, 32, 56, 71, 37, 2, 36, 91],
@@ -208,7 +208,35 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  // On calcule les axes de la matrice
+  let x = matrix[0].length;
+  let y = matrix.length;
+  let product = 0;
+
+
+
+  for (let i = 0; i < y; i++){
+    for (let j = 0; j < matrix[i].length -4 ; j++){
+      let tempProduct = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3] ;
+      if (product < tempProduct) {
+        product = tempProduct;
+      };
+    };
+  };
+
+  for (let i = 0; i < x; i++){
+    for (let j= 0; j < matrix.length - 4; j++){
+    let tempProduct2 =  matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+    if (product < tempProduct2) {
+      product = tempProduct2;
+      };
+    };
+  };
+
+  return product;
+
+}
 
 
 
